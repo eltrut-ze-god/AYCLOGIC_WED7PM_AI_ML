@@ -17,11 +17,21 @@ from fastai.vision.all import *
 from PIL import Image
 import io
 
+import platform
+import pathlib
+
+if platform.system() == "Windows":
+    pathlib.PosixPath = pathlib.WindowsPath
+
 st.set_page_config(page_title="Sea Animal Classifier", layout="centered")
+
+def extract_animals(path):
+    parts = str(path).split('/')
+    return parts[-2]
 
 @st.cache_resource
 def get_model():
-    return load_learner("models/sea_animal_classifier_fastai_2_7_19.pkl")
+    return load_learner("../models/Hopefully_usuable_sea_animal_classifier_fastai_2_7_19.pkl")
 
 learn = get_model()
 
