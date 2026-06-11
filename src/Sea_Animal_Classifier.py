@@ -31,7 +31,7 @@ def extract_animals(path):
 
 @st.cache_resource
 def get_model():
-    return load_learner("../models/Hopefully_usuable_sea_animal_classifier_fastai_2_7_19.pkl")
+    return load_learner("models/Hopefully_usuable_sea_animal_classifier_fastai_2_7_19.pkl")
 
 learn = get_model()
 
